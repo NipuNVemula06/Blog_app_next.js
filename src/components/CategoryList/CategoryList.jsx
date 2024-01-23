@@ -10,7 +10,7 @@ const CategoryList = () => {
       <div className="categories_list">
         <Link href="/blog?cat=style" className="category style">
           <Image
-            src="/style.png"
+            src="/style.jpg"
             alt="style"
             width={32}
             height={32}
@@ -18,19 +18,20 @@ const CategoryList = () => {
           />
           style
         </Link>
-        <Link href="/blog?cat=style" className="category fashion">
+        <Link href="/blog?cat=fashion" className="category fashion">
           <Image
-            src="/fashion.png"
+            src="/fashion.jpg"
             alt="fashion"
             width={32}
             height={32}
             className="category_image"
+            quality={100}
           />
           fashion
         </Link>
-        <Link href="/blog?cat=style" className="category food">
+        <Link href="/blog?cat=food" className="category food">
           <Image
-            src="/food.png"
+            src="/food.jpg"
             alt="food"
             width={32}
             height={32}
@@ -38,9 +39,9 @@ const CategoryList = () => {
           />
           food
         </Link>
-        <Link href="/blog?cat=style" className="category travel">
+        <Link href="/blog?cat=travel" className="category travel">
           <Image
-            src="/travel.png"
+            src="/travel.jpg"
             alt="travel"
             width={32}
             height={32}
@@ -48,9 +49,9 @@ const CategoryList = () => {
           />
           travel
         </Link>
-        <Link href="/blog?cat=style" className="category culture">
+        <Link href="/blog?cat=culture" className="category culture">
           <Image
-            src="/culture.png"
+            src="/culture.jpg"
             alt="culture"
             width={32}
             height={32}
@@ -58,9 +59,9 @@ const CategoryList = () => {
           />
           culture
         </Link>
-        <Link href="/blog?cat=style" className="category coding">
+        <Link href="/blog?cat=coding" className="category coding">
           <Image
-            src="/coding.png"
+            src="/coding.jpg"
             alt="coding"
             width={32}
             height={32}

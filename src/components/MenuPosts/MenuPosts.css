@@ -13,18 +13,16 @@
 
 .menu_imagecontainer {
   flex: 1;
-  aspect-ratio: 1/1;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  aspect-ratio: 1/1;
 }
+
 .menu_image {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid lightgray;
 }
 
 .menu_textcontainer {
@@ -70,6 +68,7 @@
   overflow: hidden;
   -webkit-line-clamp: 2; /* Set the number of lines you want to display */
   text-overflow: ellipsis;
+  /* max-height: 3em; */
 }
 
 .menu_detail {

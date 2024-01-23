@@ -9,14 +9,13 @@ const MenuPosts = ({ withImage }) => {
       <Link href="/" className="menu_item">
         {withImage && (
           <div className="menu_imagecontainer">
-            <Image src="/p1.jpeg" alt="" fill className="menu_image" />
+            <Image src="/p1.jpeg" alt="image" fill className="menu_image" />
           </div>
         )}
         <div className="menu_textcontainer">
           <span className="menu_category menu_travel">Travel</span>
           <h3 className="menu_posttitle">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic.
-            adadjaojdoajdiajdoajdoajdiadja
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </h3>
           <div className="menu_detail">
             <span className="menu_username">Nipun Vemula</span>
