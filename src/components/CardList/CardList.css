@@ -1,0 +1,17 @@
+.cardlist {
+  flex: 5;
+}
+
+.cardlist_title {
+  font-size: 22px;
+}
+
+.cardlist_posts {
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .cardlist {
+    flex: 4;
+  }
+}
