@@ -6,7 +6,7 @@ const Feature = () => {
   return (
     <div className="feature">
       <h1 className="feature_title">
-        <b>Hey, Nipun here!, </b>
+        <b>Hey, Nipun here! </b>
         Discover my stories and creative ideas.
       </h1>
       <div className="feature_post">

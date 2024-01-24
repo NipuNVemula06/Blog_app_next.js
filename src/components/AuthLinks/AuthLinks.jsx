@@ -4,6 +4,7 @@ import "./AuthLinks.css";
 import Link from "next/link";
 import { RiMenu3Fill } from "react-icons/ri";
 import { RiCloseFill } from "react-icons/ri";
+import { signOut } from "next-auth/react";
 
 const AuthLinks = () => {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,9 @@ const AuthLinks = () => {
           <Link href="/write" className="authlink_write">
             Write
           </Link>
-          <span className="authlink_logout">Logout</span>
+          <span className="authlink_logout" onClick={() => signOut()}>
+            Logout
+          </span>
         </>
       )}
       <div className="authlink_burger" onClick={() => setOpen(!open)}>
