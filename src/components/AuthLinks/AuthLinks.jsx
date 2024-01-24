@@ -8,7 +8,7 @@ import { RiCloseFill } from "react-icons/ri";
 const AuthLinks = () => {
   const [open, setOpen] = useState(false);
 
-  const status = "notauthenticated";
+  const status = "authenticated";
   return (
     <div className="authlink">
       {status === "notauthenticated" ? (

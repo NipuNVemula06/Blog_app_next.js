@@ -47,6 +47,16 @@ a {
   padding: 0 80px;
 }
 
+/* reach quill (text editor) default CSS override */
+
+.ql-container {
+  font-size: 28px !important;
+}
+
+.quill > .ql-container > .ql-editore.ql-blank::before {
+  color: #b3b3b1;
+}
+
 /* RESPONSIVE POINTS */
 
 @media screen and (max-width: 1200px) {
@@ -66,10 +76,16 @@ a {
   .wrapper {
     max-width: 640px;
   }
+  .ql-container {
+    font-size: 24px !important;
+  }
 }
 
 @media screen and (max-width: 640px) {
   .wrapper {
     max-width: 475px;
+  }
+  .ql-container {
+    font-size: 18px !important;
   }
 }

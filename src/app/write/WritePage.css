@@ -1,0 +1,159 @@
+.write {
+  margin-top: 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.write_topsection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.write_input {
+  padding: 10px;
+  font-size: 26px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid lightgray;
+  flex: 1;
+  background-color: transparent;
+}
+
+.write_input:focus {
+  outline: none;
+}
+
+.write_select {
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid lightgray;
+  color: gray;
+  width: 250px;
+  outline: none;
+}
+
+.write_editor {
+  height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.write_plusbutton,
+.write_addbutton {
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--softTextColor);
+  position: relative;
+}
+
+.write_addbutton > label {
+  margin-bottom: -5px;
+}
+
+.write_plusicon {
+  font-size: 20px;
+  color: var(--softTextColor);
+}
+
+.write_add {
+  position: absolute;
+  top: 0px;
+  left: 70px;
+  display: flex;
+  gap: 20px;
+}
+
+.write_imageinput {
+  display: none;
+}
+
+.write_publishbutton {
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  background-color: #1a8917;
+  cursor: pointer;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* .write_editor {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  height: 700px;
+}
+
+.write_imageinput {
+  display: none;
+}
+
+.write_plusbutton,
+.write_addbutton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--textColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.write_addbutton {
+  border-color: #1a8917;
+}
+
+.write_add {
+  display: flex;
+  gap: 20px;
+  background-color: var(--bg);
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  padding: 10px 0px;
+  left: 50px;
+}
+
+.write_textarea {
+  width: 100%;
+}
+
+.write_publishbutton {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  background-color: #1a8917;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 10px;
+} */
+
+@media screen and (max-width: 645px) {
+  .write_topsection {
+    flex-direction: column;
+  }
+  .write_select {
+    font-size: 14px;
+    color: gray;
+    width: 100%;
+  }
+}
