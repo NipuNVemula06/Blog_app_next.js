@@ -76,8 +76,13 @@
   gap: 20px;
 }
 
+.write_addicon {
+  cursor: pointer;
+}
+
 .write_imageinput {
   display: none;
+  cursor: pointer;
 }
 
 .write_publishbutton {
@@ -91,62 +96,6 @@
   top: 0;
   right: 0;
 }
-
-/* .write_editor {
-  display: flex;
-  gap: 20px;
-  position: relative;
-  height: 700px;
-}
-
-.write_imageinput {
-  display: none;
-}
-
-.write_plusbutton,
-.write_addbutton {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: transparent;
-  border: 1px solid var(--textColor);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.write_addbutton {
-  border-color: #1a8917;
-}
-
-.write_add {
-  display: flex;
-  gap: 20px;
-  background-color: var(--bg);
-  position: absolute;
-  z-index: 999;
-  width: 100%;
-  padding: 10px 0px;
-  left: 50px;
-}
-
-.write_textarea {
-  width: 100%;
-}
-
-.write_publishbutton {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  padding: 10px 20px;
-  border: none;
-  color: white;
-  background-color: #1a8917;
-  cursor: pointer;
-  font-weight: 600;
-  border-radius: 10px;
-} */
 
 @media screen and (max-width: 645px) {
   .write_topsection {

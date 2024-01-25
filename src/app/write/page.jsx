@@ -62,6 +62,7 @@ const WritePage = () => {
             <input
               type="file"
               id="image"
+              accept="image/*"
               onChange={(e) => setFile(e.target.files[0])}
               className="write_imageinput"
             />
