@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./WritePage.css";
 import Image from "next/image";
 import { IoMdAdd } from "react-icons/io";
@@ -10,17 +10,60 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { app } from "@/utils/firebase";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 
 const WritePage = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
   const [file, setFile] = useState(null);
-  const [video, setVideo] = useState("");
+  const [media, setMedia] = useState("");
   const [title, setTitle] = useState("");
-
+  const [buttonstatus, setButtonStatus] = useState(true);
   const { status } = useSession();
   const router = useRouter();
+
+  useEffect(() => {
+    const upload = () => {
+      const storage = getStorage(app);
+      const name = file.name + new Date().getTime();
+      const storageRef = ref(storage, name);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+          switch (snapshot.state) {
+            case "paused":
+              console.log("Upload is paused");
+              break;
+            case "running":
+              console.log("Upload is running");
+              break;
+          }
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setMedia(downloadURL);
+          });
+        }
+      );
+    };
+
+    file && upload();
+  }, [file]);
 
   if (status === "loading") {
     return <div className="write_loading">loading...</div>;
@@ -28,6 +71,32 @@ const WritePage = () => {
   if (status === "unauthenticated") {
     router.push("/");
   }
+
+  const slugify = (str) =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+  const handleSubmit = async () => {
+    const res = await fetch("/api/posts", {
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        desc: value,
+        img: media,
+        slug: slugify(title),
+        catSlug: category || "style",
+      }),
+    });
+
+    if (res.status === 200) {
+      const data = await res.json();
+      router.push(`/posts/${data.slug}`);
+    }
+  };
 
   return (
     <div className="write">
@@ -85,7 +154,9 @@ const WritePage = () => {
           onChange={setValue}
           placeholder="Tell your story..."
         />
-        <button className="write_publishbutton">Publish</button>
+        <button className="write_publishbutton" onClick={handleSubmit}>
+          Publish
+        </button>
       </div>
     </div>
   );

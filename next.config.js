@@ -5,6 +5,7 @@ const nextConfig = {
       "plus.unsplash.com",
       "images.unsplash.com",
       "lh3.googleusercontent.com",
+      "firebasestorage.googleapis.com",
     ],
   },
 };
