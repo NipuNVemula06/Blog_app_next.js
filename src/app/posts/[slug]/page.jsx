@@ -62,7 +62,7 @@ const SinglePage = async ({ params }) => {
             }
           />
           <div className="singlepage_coomment">
-            <Comments />
+            <Comments postSlug={slug} />
           </div>
         </div>
         <Menu />

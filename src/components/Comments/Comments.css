@@ -33,17 +33,21 @@
   margin-top: 50px;
 }
 
+.comment_box {
+  border-bottom: 1px solid lightgray;
+  padding: 10px 0px;
+}
+
 .comment {
-  margin-bottom: 30px;
   display: flex;
   align-items: center;
   gap: 20px;
+  margin-bottom: 30px;
 }
 
 .comment_user {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
 .comment_image {
@@ -67,8 +71,7 @@
 }
 
 .comment_desc {
-  font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @media screen and (max-width: 645px) {
