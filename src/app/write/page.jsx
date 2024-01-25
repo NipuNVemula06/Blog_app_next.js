@@ -8,6 +8,8 @@ import { IoImagesOutline, IoVideocamOutline } from "react-icons/io5";
 import { RiExternalLinkLine } from "react-icons/ri";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const WritePage = () => {
   const [open, setOpen] = useState(false);
@@ -16,6 +18,16 @@ const WritePage = () => {
   const [file, setFile] = useState(null);
   const [video, setVideo] = useState("");
   const [title, setTitle] = useState("");
+
+  const { status } = useSession();
+  const router = useRouter();
+
+  if (status === "loading") {
+    return <div className="write_loading">loading...</div>;
+  }
+  if (status === "unauthenticated") {
+    router.push("/");
+  }
 
   return (
     <div className="write">
@@ -74,23 +86,6 @@ const WritePage = () => {
         />
         <button className="write_publishbutton">Publish</button>
       </div>
-
-      {/* <div className="write_editor">
-        <button className="write_plusbutton" onClick={() => setOpen(!open)}>
-          <IoMdAdd className="write_plusicon" />
-        </button>
-        v>
-        )}
-        <ReactQuill
-          theme="bubble"
-          value={value}
-          onChange={setValue}
-          placeholder="Tell your story..."
-          className="write_textarea"
-        />
-
-        <button className="write_publishbutton">Publish</button>
-      </div> */}
     </div>
   );
 };

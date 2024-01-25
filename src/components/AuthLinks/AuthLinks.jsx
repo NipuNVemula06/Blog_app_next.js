@@ -4,15 +4,15 @@ import "./AuthLinks.css";
 import Link from "next/link";
 import { RiMenu3Fill } from "react-icons/ri";
 import { RiCloseFill } from "react-icons/ri";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const AuthLinks = () => {
   const [open, setOpen] = useState(false);
 
-  const status = "authenticated";
+  const { status } = useSession();
   return (
     <div className="authlink">
-      {status === "notauthenticated" ? (
+      {status === "unauthenticated" ? (
         <Link href="/login" className="authlink_login">
           Login
         </Link>
