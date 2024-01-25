@@ -27,7 +27,7 @@ const Card = ({ item, key }) => {
           <span className="card_date">
             {changeDateFromat(item.createdAt)} -
           </span>
-          <span className="card_category"> {item.slug}</span>
+          <span className="card_category"> {item.catSlug}</span>
         </div>
         <Link href={`/posts/${item.slug}`}>
           <h1 className="card_title">{item.title}</h1>

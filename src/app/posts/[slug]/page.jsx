@@ -20,6 +20,13 @@ const SinglePage = async ({ params }) => {
   const { slug } = params;
   const data = await getPostData({ slug });
 
+  const convertDateFormat = (timestamp) => {
+    const date = new Date(timestamp);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = date.toLocaleDateString("en-US", options);
+    return formattedDate;
+  };
+
   return (
     <div className="singlepage">
       <div className="singlepage_infocontainer">
@@ -38,7 +45,9 @@ const SinglePage = async ({ params }) => {
             )}
             <div className="singlepage_usertextcontainer">
               <span className="singlepage_username">{data?.user.name}</span>
-              <span className="singlepage_date">24 January 2024</span>
+              <span className="singlepage_date">
+                {convertDateFormat(data?.createdAt)}
+              </span>
             </div>
           </div>
         </div>
