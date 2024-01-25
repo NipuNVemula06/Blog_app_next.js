@@ -3,28 +3,34 @@ import "./Card.css";
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = () => {
+const Card = ({ item, key }) => {
+  const changeDateFromat = (createdAt) => {
+    const date = new Date(createdAt);
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).format(date);
+
+    return formattedDate;
+  };
+
   return (
-    <div className="card">
+    <div className="card" key={key}>
       <div className="card_imagecontainer">
-        <Image className="card_image" src="/p1.jpeg" alt="pic" fill />
+        <Image className="card_image" src={item.img} alt="pic" fill />
       </div>
       <div className="card_textcontainer">
         <div className="card_detail">
-          <span className="card_date">24.01.2024 - </span>
-          <span className="card_category">CULTURE</span>
+          <span className="card_date">
+            {changeDateFromat(item.createdAt)} -
+          </span>
+          <span className="card_category"> {item.slug}</span>
         </div>
         <Link href="/">
-          <h1 className="card_title">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </h1>
+          <h1 className="card_title">{item.title}</h1>
         </Link>
-        <p className="card_desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam totam
-          consequatur ducimus adipisci optio, sed vero deleniti illum provident
-          temporibus, libero nisi assumenda unde quos, esse nemo ratione
-          voluptate ea.
-        </p>
+        <p className="card_desc">{item.desc}</p>
         <Link href="/" className="card_link">
           Read More
         </Link>
