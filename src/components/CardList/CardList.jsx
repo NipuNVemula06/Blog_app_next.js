@@ -3,10 +3,13 @@ import "./CardList.css";
 import Pagination from "../Pagination/Pagination";
 import Card from "../Card/Card";
 
-const getPostsData = async ({ page }) => {
-  const res = await fetch(`http://localhost:3000/api/posts?page=${page}`, {
-    cache: "no-store",
-  });
+const getPostsData = async ({ page, cat }) => {
+  const res = await fetch(
+    `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed");
@@ -15,8 +18,8 @@ const getPostsData = async ({ page }) => {
   return res.json();
 };
 
-const CardList = async ({ page }) => {
-  const { posts, count } = await getPostsData({ page });
+const CardList = async ({ page, cat }) => {
+  const { posts, count } = await getPostsData({ page, cat });
 
   const POST_PER_PAGE = 4;
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;

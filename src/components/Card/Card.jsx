@@ -17,9 +17,11 @@ const Card = ({ item, key }) => {
 
   return (
     <div className="card" key={key}>
-      <div className="card_imagecontainer">
-        <Image className="card_image" src={item.img} alt="pic" fill />
-      </div>
+      {item.img && (
+        <div className="card_imagecontainer">
+          <Image className="card_image" src={item.img} alt="pic" fill />
+        </div>
+      )}
       <div className="card_textcontainer">
         <div className="card_detail">
           <span className="card_date">
@@ -27,11 +29,11 @@ const Card = ({ item, key }) => {
           </span>
           <span className="card_category"> {item.slug}</span>
         </div>
-        <Link href="/">
+        <Link href={`/posts/${item.slug}`}>
           <h1 className="card_title">{item.title}</h1>
         </Link>
         <p className="card_desc">{item.desc}</p>
-        <Link href="/" className="card_link">
+        <Link href={`/posts/${item.slug}`} className="card_link">
           Read More
         </Link>
       </div>
