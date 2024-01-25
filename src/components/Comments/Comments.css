@@ -31,23 +31,21 @@
 
 .comments_boxcontainer {
   margin-top: 50px;
-}
-
-.comment_box {
-  border-bottom: 1px solid lightgray;
-  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .comment {
   display: flex;
-  align-items: center;
   gap: 20px;
-  margin-bottom: 30px;
 }
 
 .comment_user {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: self-start;
+  gap: 10px;
 }
 
 .comment_image {
@@ -57,7 +55,7 @@
 
 .comment_userinfo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 5px;
   color: var(--softTextColor);
 }
@@ -67,7 +65,8 @@
 }
 
 .comment_date {
-  font-size: 14px;
+  font-size: 12px;
+  font-style: italic;
 }
 
 .comment_desc {
