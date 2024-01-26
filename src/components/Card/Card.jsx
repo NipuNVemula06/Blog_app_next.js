@@ -33,7 +33,7 @@ const Card = ({ item, key }) => {
           <h1 className="card_title">{item.title}</h1>
         </Link>
         <p className="card_desc">{item.desc}</p>
-        <Link href={`/posts/${item.title}`} className="card_link">
+        <Link href={`/posts/${item.slug}`} className="card_link">
           Read More
         </Link>
       </div>

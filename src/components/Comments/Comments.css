@@ -29,6 +29,10 @@
   cursor: pointer;
 }
 
+.comments_loginlink:hover {
+  text-decoration: underline;
+}
+
 .comments_boxcontainer {
   margin-top: 50px;
   display: flex;

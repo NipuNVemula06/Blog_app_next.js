@@ -73,7 +73,9 @@ const Comments = ({ postSlug }) => {
           </button>
         </div>
       ) : (
-        <Link href="/login">Login to write a comment</Link>
+        <Link href="/login" className="comments_loginlink">
+          Login to write a comment
+        </Link>
       )}
       <div className="comments_boxcontainer">
         {isLoading
