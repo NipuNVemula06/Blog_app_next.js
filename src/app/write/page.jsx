@@ -6,7 +6,6 @@ import Image from "next/image";
 import { IoMdAdd } from "react-icons/io";
 import { IoImagesOutline, IoVideocamOutline } from "react-icons/io5";
 import { RiExternalLinkLine } from "react-icons/ri";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -19,6 +18,7 @@ import {
 } from "firebase/storage";
 import PreviewImage from "@/components/PreviewImage/PreviewImage";
 import LoadingBar from "react-top-loading-bar";
+import dynamic from "next/dynamic";
 
 const WritePage = () => {
   const [open, setOpen] = useState(false);
@@ -30,6 +30,8 @@ const WritePage = () => {
   const [progress, setProgress] = useState(0);
   const { status } = useSession();
   const router = useRouter();
+  //
+  const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
   if (status === "loading") {
     return <div className="write_loading">loading...</div>;
