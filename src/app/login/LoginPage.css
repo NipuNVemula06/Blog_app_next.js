@@ -22,6 +22,12 @@
   color: white;
   font-weight: 500;
 }
+.login_loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
 .login_socialbutton:first-child {
   background-color: #ff5555;
@@ -37,7 +43,7 @@
 
 @media screen and (max-width: 768px) {
   .login_wrapper {
-    padding: 100px 180px;
+    padding: 100px 130px;
   }
 }
 

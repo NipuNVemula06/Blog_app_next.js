@@ -8,13 +8,17 @@ import { useRouter } from "next/navigation";
 const LoginPage = () => {
   const { data, status } = useSession();
   const router = useRouter();
+  console.log(status);
+  console.log(data);
 
-  if (status === "loading") {
-    return <div className="login_loading">loading...</div>;
-  }
-  if (status === "authenticated") {
-    router.push("/");
-  }
+  useEffect(() => {
+    console.log("Status:", status);
+    if (status === "authenticated") {
+      console.log("Redirecting to homepage");
+      router.push("/");
+    }
+  }, [status, router]);
+
   return (
     <div className="login">
       <div className="login_wrapper">
