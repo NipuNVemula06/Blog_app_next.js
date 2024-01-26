@@ -32,7 +32,12 @@ const Card = ({ item, key }) => {
         <Link href={`/posts/${item.slug}`}>
           <h1 className="card_title">{item.title}</h1>
         </Link>
-        <p className="card_desc">{item.desc}</p>
+        <p
+          className="card_desc"
+          dangerouslySetInnerHTML={
+            { __html: item.desc || "" } //eslint-disable-line
+          }
+        />
         <Link href={`/posts/${item.slug}`} className="card_link">
           Read More
         </Link>

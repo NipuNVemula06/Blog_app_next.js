@@ -5,22 +5,22 @@ import Link from "next/link";
 const MenuCategories = () => {
   return (
     <div className="menu_categorylist">
-      <Link href="/" className="menu_categoryitem style">
+      <Link href="/blog?cat=style" className="menu_categoryitem style">
         Style
       </Link>
-      <Link href="/" className="menu_categoryitem fashion">
+      <Link href="/blog?cat=fashion" className="menu_categoryitem fashion">
         Fashion
       </Link>
-      <Link href="/" className="menu_categoryitem food">
+      <Link href="/blog?cat=food" className="menu_categoryitem food">
         Food
       </Link>
-      <Link href="/" className="menu_categoryitem travel">
+      <Link href="/blog?cat=travel" className="menu_categoryitem travel">
         Travel
       </Link>
-      <Link href="/" className="menu_categoryitem culture">
+      <Link href="/blog?cat=culture" className="menu_categoryitem culture">
         Culture
       </Link>
-      <Link href="/" className="menu_categoryitem coding">
+      <Link href="/blog?cat=coding" className="menu_categoryitem coding">
         Coding
       </Link>
     </div>

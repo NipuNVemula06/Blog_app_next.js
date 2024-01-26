@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./WritePage.css";
-import Image from "next/image";
 import { IoMdAdd } from "react-icons/io";
 import { IoImagesOutline, IoVideocamOutline } from "react-icons/io5";
 import { RiExternalLinkLine } from "react-icons/ri";
