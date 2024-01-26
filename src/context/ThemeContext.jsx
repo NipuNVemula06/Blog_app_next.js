@@ -6,7 +6,7 @@ export const ThemeContext = createContext();
 
 // to prevent from setting the background to default again
 const getFromLocalStorage = () => {
-  if (typeof window !== undefined) {
+  if (typeof window !== "undefined") {
     const value = localStorage.getItem("theme");
     return value || "light";
   }
