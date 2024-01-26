@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import "./LoginPage.css";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -9,7 +9,6 @@ const LoginPage = () => {
   const { data, status } = useSession();
   const router = useRouter();
   console.log(status);
-  console.log(data);
 
   useEffect(() => {
     console.log("Status:", status);
