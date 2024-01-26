@@ -1,0 +1,50 @@
+.previewimage_container {
+  height: 300px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+.preview_image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.previewimage_cancel {
+  position: absolute;
+  background-color: rgb(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.previewimage_container:hover {
+  border: 2px solid var(--softTextColor);
+}
+
+.previewimage_container:hover .previewimage_cancel {
+  opacity: 1;
+}
+
+.previewimage_cancel > .cancel_button {
+  all: unset;
+  background-color: crimson;
+  color: var(--textColor);
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 645px) {
+  .previewimage_container {
+    height: 200px;
+  }
+}
