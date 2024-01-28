@@ -3,8 +3,13 @@ import "./CategoryList.css";
 import Link from "next/link";
 import Image from "next/image";
 
+const baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : process.env.BASE_URL;
+
 const getCategoriesData = async () => {
-  const res = await fetch(`${process.env.BASE_URL}/api/categories`, {
+  const res = await fetch(`${baseURL}/api/categories`, {
     cache: "no-store",
   });
   if (!res.ok) {

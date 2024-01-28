@@ -4,8 +4,13 @@ import Image from "next/image";
 import Comments from "@/components/Comments/Comments";
 import Menu from "@/components/Menu/Menu";
 
+const baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : process.env.BASE_URL;
+
 const getPostData = async ({ slug }) => {
-  const res = await fetch(`${process.env.BASE_URL}/api/posts/${slug}`, {
+  const res = await fetch(`${baseURL}/api/posts/${slug}`, {
     cache: "no-store",
   });
 
@@ -48,6 +53,9 @@ const SinglePage = async ({ params }) => {
               <span className="singlepage_date">
                 {convertDateFormat(data?.createdAt)}
               </span>
+              <p className="singlepage_views">
+                <p>{data?.views} views</p>
+              </p>
             </div>
           </div>
         </div>

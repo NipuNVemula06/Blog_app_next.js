@@ -7,6 +7,11 @@ import Image from "next/image";
 import useSWR from "swr"; // swr is a  react hook for data fetching (swr= state-while-revalidate) library
 import { useSession } from "next-auth/react";
 
+const baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : process.env.BASE_URL;
+
 const fetcher = async (url) => {
   const res = await fetch(url);
   const data = await res.json();
@@ -23,7 +28,7 @@ const Comments = ({ postSlug }) => {
   const { status } = useSession();
 
   const { data, isLoading, mutate } = useSWR(
-    `${process.env.BASE_URL}/api/comments?postSlug=${postSlug}`,
+    `/api/comments?postSlug=${postSlug}`,
     fetcher
   );
 

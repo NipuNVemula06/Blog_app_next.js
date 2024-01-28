@@ -3,9 +3,14 @@ import "./CardList.css";
 import Pagination from "../Pagination/Pagination";
 import Card from "../Card/Card";
 
+const baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : process.env.BASE_URL;
+
 const getPostsData = async ({ page, cat }) => {
   const res = await fetch(
-    `${process.env.BASE_URL}/api/posts?page=${page}&cat=${cat || ""}`,
+    `${baseURL}/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }

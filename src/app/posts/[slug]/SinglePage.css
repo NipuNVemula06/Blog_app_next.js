@@ -58,6 +58,14 @@
   font-size: 15px;
 }
 
+.singlepage_views {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-style: italic;
+}
+
 .singlepage_imagecontainer {
   flex: 1;
   height: 250px;
